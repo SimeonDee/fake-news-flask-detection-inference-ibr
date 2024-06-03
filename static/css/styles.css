@@ -1,0 +1,37 @@
+
+.container{
+    margin-top: 50px;
+}
+
+form {
+    padding: 25px;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.form-wrapper{
+    border: 1px solid rgb(235, 229, 229);
+    border-radius: 10px;
+    padding: 25px;
+    width: 800px;
+}
+
+.form-control{
+    background-color: rgb(236, 238, 245);
+    color: rgb(48, 45, 45);
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.news{
+    padding: 25px;
+}
+
+.form-control:focus{
+    outline-color: rgb(241, 91, 91);
+}
+
+/* .btn-primary{
+    float: right;
+} */

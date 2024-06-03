@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h2>Fake News Detection</h2>
+        <div class="form-wrapper">
+            <div class="form">
+                <div class="mb-3">
+                    <label for="select-model" class="form-label">Select Trained Model</label>
+                    <select class="form-control" id="select-model" name="select-model">
+                        <option value="rf" selected> Random Forest Classifier</option>
+                        <option value="cb"> CatBoost Classifier </option>
+                        <option value="logreg"> Logistic Regression </option>
+                        <option value="best"> Best </option>
+                    </select>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="news-content" class="form-label">Enter or Copy the news content here</label>
+                    <textarea class="form-control news" id="news-content" name="news-content" rows="10"></textarea>
+                </div>
+    
+                <button type="submit" class="btn btn-primary" id="btn-classify" name="btn-classify"> Analyze News </button>
+            </div>
+        </div>
+        
+        <div class="error" id="error"></div>
+    </div>
+
+
+    <script src="{{url_for('static', filename='js/myscript.js')}}"></script>
+</body>
+</html>
