@@ -80,12 +80,16 @@ def load_model_pickle(filename):
 
 def predict(news_article, model_type='rf'):
     model = None
+    model_name = ''
     if model_type == 'cb':
         model = load_model_pickle('cb_Model.pickle')
+        model_name = 'CatBoost'
     elif model_type == 'logreg':
         model = load_model_pickle('LogReg_Model.pickle')
+        model_name = 'Logistic Regresion'
     else: # if model_type == 'rf' or 'best'
         model = load_model_pickle('rf_Model.pickle')
+        model_name = 'Random Forest'
     
     if model is not None:
         # Preprocess news
@@ -100,10 +104,10 @@ def predict(news_article, model_type='rf'):
         category = 'Real News' if pred_value == 0 else 'Fake News'
 
         results = {
-            'model': model_type,
+            'model': model_name,
             'confidence': f'{round(pred_prob.max() * 100, 2)}%',
             'predicted_value': pred_value,
-            'category': category
+            'predicted_category': category
         }
         
         

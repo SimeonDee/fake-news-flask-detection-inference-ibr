@@ -14,11 +14,14 @@ def index():
 @app.route('/classify-news', methods=['POST'])
 def classify_news():
     if request.method == 'POST':
-        data = request.json
-        results = predict(news_article=data['news'], model_type=data['model'])
-        return jsonify({'results': results})
+        try:
+            data = request.json
+            results = predict(news_article=data['news'], model_type=data['model'])
+            return jsonify({'results': results})
+        except Exception as e:
+            return jsonify({'error': e.message})
     else:
-        return jsonify({'results': None})
+        return jsonify({'error': 'invalid request method'})
 
 
 if __name__ == '__main__':
